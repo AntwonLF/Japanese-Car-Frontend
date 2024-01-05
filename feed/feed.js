@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch cars and populate them on the page
-    fetch('http://localhost:3000/api/cars')
+    fetch('https://japaneseapi-d77dff58683e.herokuapp.com/api/cars')
         .then(response => response.json())
         .then(cars => {
             const container = document.getElementById('car-container');
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // picture: document.getElementById("picture").value
             };
     
-            fetch('http://localhost:3000/api/cars', {
+            fetch('https://japaneseapi-d77dff58683e.herokuapp.com/api/cars', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Logout button event listener
     document.getElementById('logout-button').addEventListener('click', function() {
-        fetch('http://localhost:3000/api/users/logout', {
+        fetch('https://japaneseapi-d77dff58683e.herokuapp.com/api/users/logout', {
             method: 'POST',
             credentials: 'include'
         })

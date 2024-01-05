@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = document.getElementById('password').value;
         const errorMsg = document.getElementById('login-error-msg');
     
-        fetch('http://localhost:3000/api/users/login', {
+        fetch('https://japaneseapi-d77dff58683e.herokuapp.com/api/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = document.getElementById('register-password').value;
         const errorMsg = document.getElementById('register-error-msg');
         
-        fetch('http://localhost:3000/api/users/register', {
+        fetch('https://japaneseapi-d77dff58683e.herokuapp.com/api/users/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

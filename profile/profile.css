@@ -1,7 +1,11 @@
-#logout-button {
+#logout-button, #view-feed-button {
     position: fixed; 
     top: 10px;
     right: 10px;
     z-index: 1000;
     cursor: pointer;
- }
+}
+
+#view-feed-button {
+    top: 60px; 
+}

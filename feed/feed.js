@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('logout-button').addEventListener('click', function() {
         fetch('https://japaneseapi-d77dff58683e.herokuapp.com/api/users/logout', {
             method: 'POST',
-            credentials: 'include'
         })
         .then(response => {
             if (response.ok) {
@@ -68,6 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         .catch(error => console.error('Error:', error));
+    });
+    document.getElementById('view-profile-button').addEventListener('click', function() {
+        window.location.href = '../profile/profile.html'; 
     });
     
 });

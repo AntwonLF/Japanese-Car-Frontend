@@ -9,29 +9,15 @@ document.addEventListener('DOMContentLoaded', function() {
             cars.forEach(car => {
                 const carClone = template.cloneNode(true);
                 carClone.style.display = 'block';
+                carClone.setAttribute('data-make', car.make);
+                carClone.setAttribute('data-model',car.model);
+                carClone.setAttribute('data-year', car.year);
                 carClone.querySelector('.car-make-model').textContent = `${car.make} ${car.model}`;
                 carClone.querySelector('.car-year').textContent = `Year: ${car.year}`;
                 container.appendChild(carClone);
             });
         })
         .catch(error => console.error('Error', error));
-
-    // Function to handle liking a car
-    function likeCar(carId, userId) {
-        fetch(`https://japaneseapi-d77dff58683e.herokuapp.com/api/users/${userId}/like/${carId}`, {
-            method: 'POST',
-            // Include any necessary headers, like authentication tokens
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log('Car liked successfully');
-                // Optionally update the UI to reflect the like
-            } else {
-                console.error('Failed to like car');
-            }
-        })
-        .catch(error => console.error('Error:', error));
-    }
 
     // Event listener for car creation form
     document.getElementById("createCarForm").addEventListener("submit", function(event) {
@@ -71,6 +57,56 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error:', error));
     });
 
+    // Update cars
+    document.getElementById("updateCarForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const make = document.getElementById("update-make").value;
+        const model = document.getElementById("update-model").value;
+        const year = document.getElementById("update-year").value;
+        const updatedData = {
+            make: document.getElementById("update-new-make").value,
+            model: document.getElementById("update-new-model").value,
+            year: document.getElementById("update-new-year").value
+        };
+
+        fetch(`https://japaneseapi-d77dff58683e.herokuapp.com/api/cars/${make}/${model}/${year}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedData),
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to update car');
+            }
+        })
+        .then(updatedCar => {
+            console.log('Car updated successfully:', updatedCar);
+        
+            const carElements = document.querySelectorAll('.car');
+        
+            carElements.forEach(carElement => {
+                if (carElement.getAttribute('data-make') === make &&
+                    carElement.getAttribute('data-model') === model &&
+                    carElement.getAttribute('data-year') === year.toString()) {
+                    carElement.querySelector('.car-make-model').textContent = `${updatedCar.make} ${updatedCar.model}`;
+                    carElement.querySelector('.car-year').textContent = `Year: ${updatedCar.year}`;
+                    carElement.setAttribute('data-make', updatedCar.make);
+                    carElement.setAttribute('data-model', updatedCar.model);
+                    carElement.setAttribute('data-year', updatedCar.year.toString());
+                }
+            });
+        })
+        
+        .catch(error => console.error('Error:', error));
+        
+    });
+
+
     // Logout button event listener
     document.getElementById('logout-button').addEventListener('click', function() {
         fetch('https://japaneseapi-d77dff58683e.herokuapp.com/api/users/logout', {
@@ -90,4 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('view-profile-button').addEventListener('click', function() {
         window.location.href = '../profile/profile.html'; 
     });
+
+
 });

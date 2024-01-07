@@ -12,7 +12,6 @@
     <div id="car-template" class="car" style="display: none,">
         <h2 class="car-make-model"></h2>
         <p class="car-year"></p>
-        <!-- Like button removed -->
     </div> 
     <button id="logout-button">Logout</button>
     <button id="view-profile-button">Profile</button>
@@ -22,6 +21,15 @@
         <input type="number" id="year" name="year" placeholder="Year">
         <!-- <input type="text" id="picture" name="picture" placeholder="Picture URL"> -->
         <button type="submit">Add Car</button>
+    </form>
+    <form id="updateCarForm" style="margin-top: 20px;">
+        <input type="text" id="update-make" name="make" placeholder="Current Make" required>
+        <input type="text" id="update-model" name="model" placeholder="Current Model" required>
+        <input type="number" id="update-year" name="year" placeholder="Current Year" required>
+        <input type="text" id="update-new-make" name="newMake" placeholder="New Make">
+        <input type="text" id="update-new-model" name="newModel" placeholder="New Model">
+        <input type="number" id="update-new-year" name="newYear" placeholder="New Year">
+        <button type="submit">Update Car</button>
     </form>
 </body>
 </html>

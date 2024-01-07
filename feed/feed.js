@@ -1,3 +1,18 @@
+function deleteCar(make, model, year, carElement) {
+    fetch(`https://japaneseapi-d77dff58683e.herokuapp.com/api/cars/${make}/${model}/${year}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Car deleted successfully');
+            carElement.remove(); 
+        } else {
+            throw new Error('Failed to delete car');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch cars and populate them on the page
     const container = document.getElementById('car-container');
@@ -11,9 +26,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 carClone.style.display = 'block';
                 carClone.setAttribute('data-make', car.make);
                 carClone.setAttribute('data-model',car.model);
-                carClone.setAttribute('data-year', car.year);
+                carClone.setAttribute('data-year', car.year.toString());
                 carClone.querySelector('.car-make-model').textContent = `${car.make} ${car.model}`;
                 carClone.querySelector('.car-year').textContent = `Year: ${car.year}`;
+
+                const deleteButton = carClone.querySelector('.delete-car-button');
+                deleteButton.addEventListener('click', function(){
+                    deleteCar(car.make, car.model, car.year, carClone);
+                });
+
                 container.appendChild(carClone);
             });
         })

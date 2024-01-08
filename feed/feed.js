@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 carClone.style.display = 'block';
                 carClone.setAttribute('data-make', car.make);
                 carClone.setAttribute('data-model',car.model);
-                carClone.setAttribute('data-year', car.year.toString());
+                carClone.setAttribute('data-year', car.year);
                 carClone.querySelector('.car-make-model').textContent = `${car.make} ${car.model}`;
                 carClone.querySelector('.car-year').textContent = `Year: ${car.year}`;
 

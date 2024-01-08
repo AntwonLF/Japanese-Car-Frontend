@@ -1,0 +1,45 @@
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    height: 100vh; 
+    background: url('assets/Tokoyodark.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #f1ddea; 
+}
+
+h1 {
+    margin: 0.5em;
+    font-size: 2.5em; 
+}
+
+p {
+    margin: 0.5em;
+    font-size: 1.2em; 
+}
+
+a {
+    display: inline-block;
+    margin: 0.5em;
+    padding: 0.5em 1em;
+    background-color: #ef46ae; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #b70def; 
+}

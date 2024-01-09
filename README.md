@@ -29,30 +29,31 @@ The Japanese-Car-DB project is designed to cater to car enthusiasts and professi
 - **Advanced Data Handling**: Enhanced user experience with data filtering, sorting, and pagination.
 
 ## Getting Started
-- To get started, visit our website by clicking on this link: https://jdm-r-us.netlify.app.
+- Access the webaite by using this link:
+https://jdm-r-us.netlify.app
 
-- When you arrive at the Home screen, you have two options: explore our feed or head over to the login page.
+- Once you are at the Home screen you can either got to the feed or navigate to the login page.
 
-- On the login page, simply sign up to enjoy all the features we offer!
+- At the login page signup and enjoy!!!
 
 ## Wireframes/Screenshots
  ![Alt text](<assets/Wireframe.png>)
 
 ### Develop App
 
-#### HomePage
+- HomePage
 
 ![Alt text](<assets/Homepage.png>)
 
-#### Login
+- Login
 
 ![Alt text](<assets/Login.png>)
 
-#### Feed
+- Feed
 
 ![Alt text](<assets/Feed.png>)
 
-#### Profile
+- Profile
 
 ![Alt text](<>)
 
@@ -98,8 +99,12 @@ Notes
 
 ## Attributions
 
+- https://mongoosejs.com/docs/guide.html.
+- OpenAI ChatGPT for assistance with providing valuable insights and guidance.
+- General Assembly Instructors Emre Surmeli and Greg Moreta.
 
 ## Next Steps
+
 - Enhance the User Profile Page: Implement advanced functionalities such as 'likeToUserProfile' and 'AddCarToUserProfile'. This will enable users to personalize their profiles by liking other users or adding their favorite cars, fostering a more interactive and engaging community experience.
 
 - Visual Upgrade for Car Database: Assign high-quality images to each car in the database. This visual representation will not only make the database more appealing but also provide users with a more immersive and informative browsing experience, allowing them to visually connect with the cars.
@@ -199,6 +204,8 @@ POST /api/users/logout: Logout a user.
 - Implement user profiles and car likes.
 - Enhance UI/UX design.
 - Add more interactive features like car ratings or comments.
+
+
 ---
 
 # Additional Notes
